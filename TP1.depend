@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1598724804 source:c:\users\italo\onedrive\documents\codeblocks\tp1\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1598651633 source:c:\users\italo\onedrive\documents\codeblocks\tp1\tp1\file_helper.c
+
