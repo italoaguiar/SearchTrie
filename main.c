@@ -32,19 +32,29 @@ int getIndex(char c)
 }
 
 
+
+/* --------------------------------------------------
+ * Insere um caractere em um nó específico da árvore
+ * --------------------------------------------------
+ */
 struct Node* insertAt(char c, struct Node* node)
 {
     int index = getIndex(c);
     if(node->childs[index] == NULL)
     {
+        //aloca o espaço do novo nó em memória
         node->childs[index] = malloc(sizeof(struct Node));
+
+        //inicializa as posições do array de caracteres
         for(int i = 0; i< ALFABET_SIZE; i++)
             node->childs[index]->childs[i] = NULL;
 
+        //atribui o caractere e a frequência
         node->childs[index]->value = c;
         node->childs[index]->frequence = 0;
 
     }
+    //retorna o novo nó
     return node->childs[index];
 }
 
@@ -111,7 +121,23 @@ void print(struct Node* node, char * prefix)
 
 void find(char* input)
 {
-    //for(int i = 0; i < strlen(input); i++)
+    int len = strlen(input);
+    struct Node * aux = root;
+    int index = 0;
+
+    for(int i = 0; i< len; i++)
+    {
+        index = getIndex(input[i]);
+        if(aux->childs[index] != NULL)
+        {
+            aux = aux->childs[index];
+            continue;
+        }
+        printf("Nao foi encontrado nenhum resultado\n");
+        return;
+    }
+
+    print(aux, input);
 }
 
 
@@ -142,7 +168,7 @@ int main()
 
         i++;
     }
-    print(root, "");
+    find("you");
     printf("Hello world!\n");
     return 0;
 }
