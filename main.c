@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include "selectionksort.h"
 
 #define ALFABET_SIZE 53
 
@@ -10,6 +11,9 @@ struct Node {
     int frequence;
     struct Node* childs[ALFABET_SIZE];
 };
+
+struct ListEntry* linkedList;
+
 
 
 /* ------------------------------------------------
@@ -107,7 +111,7 @@ char * char_concat(char* string, char c)
 void print(struct Node* node, char * prefix)
 {
     if(node->frequence > 0)
-        printf("%s (%i)\n", prefix, node->frequence);
+        linkedList = insertEntry(prefix, node->frequence, linkedList);
 
     for(int i = 0; i< ALFABET_SIZE; i++)
     {
@@ -169,6 +173,8 @@ int main()
         i++;
     }
     find("you");
+    selectionSort(linkedList);
+    printList(linkedList);
     printf("Hello world!\n");
     return 0;
 }

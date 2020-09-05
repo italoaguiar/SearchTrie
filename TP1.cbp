@@ -36,7 +36,15 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="file_helper.h" />
+		<Unit filename="linkedlist.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="linkedlist.h" />
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="selectionksort.h" />
+		<Unit filename="selectionsort.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
