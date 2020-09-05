@@ -9,7 +9,7 @@
 
 1599265705 source:c:\users\italo\source\repos\searchtrie\file_helper.c
 
-1599313616 source:c:\users\italo\source\repos\searchtrie\main.c
+1599328205 source:c:\users\italo\source\repos\searchtrie\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -26,7 +26,7 @@
 
 1599306457 c:\users\italo\source\repos\searchtrie\linkedlist.h
 
-1599313833 source:c:\users\italo\source\repos\searchtrie\linkedlist.c
+1599314788 source:c:\users\italo\source\repos\searchtrie\linkedlist.c
 	<stdio.h>
 	<stdlib.h>
 	"linkedlist.h"
@@ -40,11 +40,11 @@
 1599309296 c:\users\italo\source\repos\searchtrie\bubblesort.h
 	"linkedlist.h"
 
-1599311635 source:c:\users\italo\source\repos\searchtrie\trie.c
+1599328104 source:c:\users\italo\source\repos\searchtrie\trie.c
 	<stdio.h>
 	<stdbool.h>
 	"trie.h"
 
-1599311648 c:\users\italo\source\repos\searchtrie\trie.h
+1599325762 c:\users\italo\source\repos\searchtrie\trie.h
 	<stdbool.h>
 

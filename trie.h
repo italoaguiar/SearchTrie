@@ -23,8 +23,8 @@ void loadFile(char* file, struct Node* root);
  * ------------------------------------------------------
  */
 struct Node {
-    char value;
     int frequence;
+    char* value;
     struct Node* childs[ALFABET_SIZE];
 };
 
@@ -35,6 +35,14 @@ struct Node {
  * ------------------------------------------------
  */
 int getIndex(char c);
+
+
+/* ------------------------------------------------
+ * Converte o índice da entrada na árvore para
+ * um caractere da tabela ASCII
+ * ------------------------------------------------
+ */
+char getChar(int index);
 
 
 /* --------------------------------------------------
@@ -78,6 +86,13 @@ char * char_concat(char* string, char c);
 struct ListEntry* getCombinations(struct Node* node, char * prefix);
 
 
+/* -------------------------------------------------
+ * Comprime a árvore removendo nós com um único filho
+ * e adicionando seus valores aos nós pais
+ * -------------------------------------------------
+ */
+void compressTree(struct Node* node);
+
 
 /* ------------------------------------------------
  * Busca por um termo na árvore.
@@ -85,6 +100,13 @@ struct ListEntry* getCombinations(struct Node* node, char * prefix);
  * ------------------------------------------------
  */
 struct ListEntry* find(char* input, struct Node* root);
+
+
+/* -----------------------------------------------
+ * Calcula o número de nós da árvore
+ * -----------------------------------------------
+ */
+int count(struct Node* node);
 
 
 

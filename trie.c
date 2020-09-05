@@ -14,6 +14,7 @@ struct Node* createRoot(){
     for(int i = 0; i< ALFABET_SIZE; i++)
         root->childs[i] = NULL;
 
+
     currentNode = root;
     return root;
 };
@@ -64,6 +65,20 @@ int getIndex(char c)
     return -1; //caractere inválido
 }
 
+/* ------------------------------------------------
+ * Converte o índice da entrada na árvore para
+ * um caractere da tabela ASCII
+ * ------------------------------------------------
+ */
+char getChar(int index){
+    if(index < 26)
+        return (char)(index + 65);
+    if(index < ALFABET_SIZE -1)
+        return (char)(index + 71);
+
+    return (char)45;
+}
+
 
 
 /* --------------------------------------------------
@@ -82,9 +97,9 @@ struct Node* insertAt(char c, struct Node* node)
         for(int i = 0; i< ALFABET_SIZE; i++)
             node->childs[index]->childs[i] = NULL;
 
-        //atribui o caractere e a frequência
-        node->childs[index]->value = c;
+        //atribui a frequência
         node->childs[index]->frequence = 0;
+        node->childs[index]->value = NULL;
 
     }
     //retorna o novo nó
@@ -150,17 +165,87 @@ struct ListEntry* linkedList;
 struct ListEntry* getCombinations(struct Node* node, char * prefix)
 {
     if(node->frequence > 0){
-        linkedList = insertEntry(prefix, node->frequence, linkedList);
+        if(node->value != NULL)
+            linkedList = insertEntry(strcat(prefix, node->value), node->frequence, linkedList);
+        else
+            linkedList = insertEntry(prefix, node->frequence, linkedList);
     }
 
     for(int i = 0; i< ALFABET_SIZE; i++)
     {
         if(node->childs[i] != NULL)
         {
-            getCombinations(node->childs[i], char_concat(prefix, node->childs[i]->value));
+            getCombinations(node->childs[i], char_concat(prefix, getChar(i)));
         }
     }
+
+
     return linkedList;
+}
+
+
+/* ------------------------------------------------
+ * Calcula se um nó possui um único filho
+ * ------------------------------------------------
+ */
+int hasOneChild(struct Node* node){
+    int r = 0;
+    int out = -1;
+    for(int i = 0; i< ALFABET_SIZE; i++){
+        if(node->childs[i] != NULL){
+            r = r + 1;
+            out = i;
+        }
+    }
+
+    if(r > 1) return -1;
+
+    return out;
+}
+
+/* ------------------------------------------------
+ * Calcula se um no não possui
+ * ------------------------------------------------
+ */
+int hasNoChild(struct Node* node){
+    for(int i = 0; i< ALFABET_SIZE; i++){
+        if(node->childs[i] != NULL){
+            return false;
+        }
+    }
+    return true;
+}
+
+
+/* -------------------------------------------------
+ * Comprime a árvore removendo nós com um único filho
+ * e adicionando seus valores aos nós pais
+ * -------------------------------------------------
+ */
+void compressTree(struct Node* node){
+    for(int i = 0; i< ALFABET_SIZE; i++)
+    {
+        if(node->childs[i] != NULL)
+        {
+            compressTree(node->childs[i]);
+        }
+    }
+
+    int oneChild = hasOneChild(node);
+    if(node->frequence == 0 && oneChild != -1 && hasNoChild(node->childs[oneChild]))
+    {
+        struct Node* item = node->childs[oneChild];
+        node->frequence = item->frequence;
+        char* value = char_concat("", getChar(oneChild));
+        if(item->value != NULL){
+            node->value = strcat(value, item->value);
+        }
+        else{
+            node->value = value;
+        }
+        free(item);
+        node->childs[oneChild] = NULL;
+    }
 }
 
 
@@ -174,6 +259,7 @@ struct ListEntry* find(char* input, struct Node* root)
     int len = strlen(input);
     struct Node * aux = root;
     int index = 0;
+    int index2 = 0;
 
     for(int i = 0; i< len; i++)
     {
@@ -183,9 +269,31 @@ struct ListEntry* find(char* input, struct Node* root)
             aux = aux->childs[index];
             continue;
         }
+        if(aux->value != NULL){
+            if(aux->value[index2] == input[i]){
+                index2 = index2 + 1;
+                continue;
+            }
+        }
         printf("Nao foi encontrado nenhum resultado\n");
         return;
     }
 
     return getCombinations(aux, input);
+}
+
+/* -----------------------------------------------
+ * Calcula o número de nós da árvore
+ * -----------------------------------------------
+ */
+int count(struct Node* node){
+    int level = 1;
+    for(int i = 0; i< ALFABET_SIZE; i++)
+    {
+        if(node->childs[i] != NULL)
+        {
+            level += count(node->childs[i]) + 1;
+        }
+    }
+    return level;
 }

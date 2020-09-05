@@ -43,8 +43,9 @@ printList(struct ListEntry* lst){
  */
 printListAndFree(struct ListEntry* lst){
     struct ListEntry* aux;
+    printf(" sugestoes: \n");
     while(lst != NULL){
-        printf("%s (%i)\n", lst->content, lst->frequence);
+        printf("          %s (%i)\n", lst->content, lst->frequence);
 
         aux = lst;
         lst = lst->next;
