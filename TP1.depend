@@ -9,14 +9,14 @@
 
 1599265705 source:c:\users\italo\source\repos\searchtrie\file_helper.c
 
-1599274545 source:c:\users\italo\source\repos\searchtrie\main.c
+1599313616 source:c:\users\italo\source\repos\searchtrie\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<stdbool.h>
-	"selectionksort.h"
+	"bubblesort.h"
 
-1599278306 source:c:\users\italo\source\repos\searchtrie\selectionsort.c
+1599279578 source:c:\users\italo\source\repos\searchtrie\selectionsort.c
 	<stdio.h>
 	<stdlib.h>
 	"selectionksort.h"
@@ -24,10 +24,27 @@
 1599276588 c:\users\italo\source\repos\searchtrie\selectionksort.h
 	"linkedlist.h"
 
-1599273953 c:\users\italo\source\repos\searchtrie\linkedlist.h
+1599306457 c:\users\italo\source\repos\searchtrie\linkedlist.h
 
-1599274495 source:c:\users\italo\source\repos\searchtrie\linkedlist.c
+1599313833 source:c:\users\italo\source\repos\searchtrie\linkedlist.c
 	<stdio.h>
 	<stdlib.h>
 	"linkedlist.h"
+
+1599309279 source:c:\users\italo\source\repos\searchtrie\bubblesort.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"bubblesort.h"
+
+1599309296 c:\users\italo\source\repos\searchtrie\bubblesort.h
+	"linkedlist.h"
+
+1599311635 source:c:\users\italo\source\repos\searchtrie\trie.c
+	<stdio.h>
+	<stdbool.h>
+	"trie.h"
+
+1599311648 c:\users\italo\source\repos\searchtrie\trie.h
+	<stdbool.h>
 

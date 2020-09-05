@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "selectionksort.h"
+#include <stdbool.h>
+#include "bubblesort.h"
 
 void swap(struct ListEntry* a, struct ListEntry* b)
 {
@@ -22,11 +23,13 @@ void prt(struct ListEntry* lst){
     }
 }
 
-void selectionSort(struct ListEntry* start)
+void bubbleSort(struct ListEntry* start)
 {
     struct ListEntry* ax1 = NULL;
     struct ListEntry* ax2 = NULL;
     int swapped = 0;
+
+    if(start == NULL || start->next == NULL) return;
 
     do
     {
