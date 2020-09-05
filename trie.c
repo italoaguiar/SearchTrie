@@ -164,8 +164,10 @@ struct ListEntry* linkedList;
 struct ListEntry* getCombinations(struct Node* node, char * prefix)
 {
     if(node->frequence > 0){
-        if(node->value != NULL)
-            linkedList = insertEntry(strcat(prefix, node->value), node->frequence, linkedList);
+        if(node->value != NULL){
+            strcat(prefix, node->value);
+            linkedList = insertEntry(prefix, node->frequence, linkedList);
+        }
         else
             linkedList = insertEntry(prefix, node->frequence, linkedList);
     }
@@ -275,6 +277,11 @@ struct ListEntry* find(char* input, struct Node* root)
             }
         }
         printf("Nao foi encontrado nenhum resultado\n");
+        return;
+    }
+
+    if(index2 > 0){
+        linkedList = insertEntry(input, aux->frequence, linkedList);
         return;
     }
 

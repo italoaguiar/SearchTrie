@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    if(strcmp(argv[2], "-exp"))
+    if(strcmp(argv[2], "-exp") == 0)
     {
         startMeasure(argv[1]);
     }

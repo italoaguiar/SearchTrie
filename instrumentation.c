@@ -64,18 +64,19 @@ struct Node* measureTreeConstructionTime(char* file){
 void measureSearchTime(struct Node* root){
     double times[ALFABET_SIZE];
     char* sample[40] = {
-        "Sherlock", "Merripit", "mornings", "s",
-        "she", "old-fashioned", "well-polished", "silver-plated",
-        "c", "Baskervilles", "restrictions", "BASKERVILLES",
-        "practitioner", "appreciation", "l", "unfortunate",
-        "r", "examination", "whatsoever", "Stapletons",
+        "sher", "me", "mornings", "s",
+        "she", "old", "well-polished", "silver-plated",
+        "c", "Baskervill", "restricti", "BASKERVIL",
+        "practitioner", "appreciat", "l", "unfortun",
+        "r", "examination", "whatsoever", "Staplet",
         "infrequent", "a", "reassuring", "k",
         "coffee-pot", "i", "importance", "successful",
-        "Excellent", "Gutenberg", "breakfast", "you",
+        "Excellent", "Gutenbe", "breakfast", "you",
         "following", "companion", "e", "included",
         "February", "Produced", "produced", "CONTENTS"
 
     };
+    //compressTree(root);
 
     for(int i = 0; i< 40; i++)
     {
@@ -85,7 +86,7 @@ void measureSearchTime(struct Node* root){
 
         times[i] = (double)(end-start)/CLOCKS_PER_SEC;
     }
-    storeResult(times, ALFABET_SIZE, "searchTime.txt");
+    storeResult(times, 40, "searchTime.txt");
 }
 
 void startMeasure(char* file){
