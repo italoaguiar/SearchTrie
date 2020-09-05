@@ -11,6 +11,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="baskersvilles.txt -i" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
@@ -32,10 +33,18 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="baskersvilles.txt" />
+		<Unit filename="bubblesort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="bubblesort.h" />
 		<Unit filename="file_helper.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="file_helper.h" />
+		<Unit filename="instrumentation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="instrumentation.h" />
 		<Unit filename="linkedlist.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -43,10 +52,10 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="selectionksort.h" />
-		<Unit filename="selectionsort.c">
+		<Unit filename="trie.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="trie.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

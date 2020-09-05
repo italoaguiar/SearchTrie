@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "bubblesort.h"
+#include "instrumentation.h"
 
 
 struct Node *root;
@@ -17,9 +18,8 @@ int main(int argc, char *argv[])
 
     if(strcmp(argv[2], "-i") == 0){
         loadFile(argv[1], root);
-        printf("Nos: %i\n", count(root));
         compressTree(root);
-        printf("Nos: %i\n", count(root));
+
         char input[20]; //buffer de 20 caracteres de entrada
 
         while(strcmp(input, "0")){
@@ -36,6 +36,11 @@ int main(int argc, char *argv[])
             printListAndFree(linkedList);
             printf("\n");
         }
+    }
+
+    if(strcmp(argv[2], "-exp"))
+    {
+        startMeasure(argv[1]);
     }
 
     return 0;

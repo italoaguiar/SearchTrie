@@ -14,7 +14,7 @@ struct Node* createRoot(){
     for(int i = 0; i< ALFABET_SIZE; i++)
         root->childs[i] = NULL;
 
-
+    root->value = NULL;
     currentNode = root;
     return root;
 };
@@ -36,13 +36,12 @@ void loadFile(char* file, struct Node* root){
         return;
     }
 
-    int i = 0;
     //otimiza a leitura utilizando um buffer
     while ((message = fread(buffer, 1, buffer_size, fp)) > 0) {
-        for(i = 0; i< message; i++)
+        for(int i = 0; i< message; i++)
             insert(buffer[i], root);
 
-        i++;
+
     }
 }
 
@@ -270,7 +269,7 @@ struct ListEntry* find(char* input, struct Node* root)
             continue;
         }
         if(aux->value != NULL){
-            if(aux->value[index2] == input[i]){
+            if(strlen(aux->value) > index2 && aux->value[index2] == input[i]){
                 index2 = index2 + 1;
                 continue;
             }
