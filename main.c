@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
         char input[20]; //buffer de 20 caracteres de entrada
 
         while(strcmp(input, "0")){
-            printf("%s", "Entre com o sulfixo ou digite 0 para sair: ");
+            printf("%s", "Entre com o prefixo ou digite 0 para sair: ");
 
             scanf("%s", input);
 
